@@ -1,0 +1,80 @@
+# ── ENVIRONMENT ───────────────────────────────────────
+.env
+*.env
+.env.*
+
+# ── PYTHON ────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+*.so
+.venv/
+venv/
+ENV/
+env/
+
+# ── JUPYTER ───────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── ML MODELS & DATA ──────────────────────────────────
+ml/data/raw/
+ml/data/processed/
+*.pkl
+*.joblib
+*.onnx
+*.h5
+
+# ── NODE ──────────────────────────────────────────────
+node_modules/
+.next/
+out/
+dist/
+.expo/
+*.tsbuildinfo
+
+# ── DOCKER ────────────────────────────────────────────
+docker-compose.override.yml
+
+# ── DATABASE ──────────────────────────────────────────
+*.sql.gz
+*.dump
+
+# ── LOGS ──────────────────────────────────────────────
+*.log
+logs/
+
+# ── OS ────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── EDITORS ───────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── TESTING ───────────────────────────────────────────
+.coverage
+htmlcov/
+.pytest_cache/
+coverage.xml
+
+# ── UPLOADS / MEDIA ───────────────────────────────────
+uploads/
+media/
