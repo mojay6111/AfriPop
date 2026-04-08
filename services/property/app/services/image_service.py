@@ -1,4 +1,5 @@
 import io
+import json
 import uuid
 from PIL import Image
 import imagehash
@@ -13,10 +14,21 @@ client = Minio(
     secure=False,
 )
 
+PUBLIC_POLICY = {
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Principal": {"AWS": ["*"]},
+        "Action": ["s3:GetObject"],
+        "Resource": [f"arn:aws:s3:::{settings.MINIO_BUCKET}/*"]
+    }]
+}
+
 
 def ensure_bucket():
     if not client.bucket_exists(settings.MINIO_BUCKET):
         client.make_bucket(settings.MINIO_BUCKET)
+    client.set_bucket_policy(settings.MINIO_BUCKET, json.dumps(PUBLIC_POLICY))
 
 
 def process_and_upload(file_bytes: bytes, original_filename: str) -> dict:
