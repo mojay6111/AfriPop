@@ -238,3 +238,121 @@ redis, rq (background jobs)
 - A USSD user's search query hits the same search endpoint
 - Duplicate listings are automatically flagged before going live
 - Verified badge appears on clean listings
+
+
+
+```markdown
+### ✅ Phase 2 — Completed
+
+#### What Was Achieved
+
+The property service is a fully independent FastAPI microservice running on port 8001
+with its own database connection, models, and business logic. It handles everything
+property-related so the gateway stays lean and each service owns its domain.
+
+Three PostgreSQL tables were created automatically on startup:
+- `properties` — the core listing: type, price, location, status, fraud flags
+- `property_images` — compressed images with dimensions and perceptual hash per listing
+- `property_amenities` — amenities linked to each property (wifi, parking, pool, etc.)
+
+Fraud detection runs on every new listing before it goes live. Two signals are checked:
+duplicate images using perceptual hashing (pHash, threshold distance < 10) and duplicate
+descriptions using TF-IDF cosine similarity (threshold > 0.85). If either triggers,
+the listing is flagged with `needs_review: true` and held for admin review.
+
+Images are compressed to max 1200px width at 85% JPEG quality using Pillow before being
+stored in MinIO. The bucket is set to public so image URLs work directly in the browser
+and mobile app without authentication.
+
+Geo search uses the Haversine formula to calculate straight-line distance between two
+coordinates. A tenant's GPS location from the mobile app hits `/nearby` with a radius
+and gets back properties sorted nearest first — no PostGIS query needed.
+
+Soft delete is used throughout — properties are never hard deleted from the database.
+`is_active=False` preserves the audit trail and prevents broken references from leases
+and payment records that will be built in later phases.
+
+---
+
+#### Useful Commands
+
+**Start the property service:**
+```bash
+cd /mnt/d/DS_PROJECTS/AfriProp/services/property
+source venv/bin/activate
+uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
+```
+
+**Create a listing:**
+```bash
+curl -s -X POST http://localhost:8001/api/v1/properties/ \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Modern 2BR Apartment in Westlands",
+    "description": "Spacious apartment with great natural light and secure parking.",
+    "property_type": "apartment",
+    "bedrooms": 2, "bathrooms": 1, "floor_area_sqm": 75.0,
+    "furnishing": "semi_furnished", "price": 45000,
+    "price_period": "monthly", "currency": "KES",
+    "city": "Nairobi", "neighbourhood": "Westlands", "country": "Kenya",
+    "latitude": -1.2676, "longitude": 36.8114,
+    "amenities": ["wifi", "parking", "security"]
+  }' | python3 -m json.tool
+```
+
+**Search by city and bedrooms:**
+```bash
+curl -s "http://localhost:8001/api/v1/properties/?city=Nairobi&min_bedrooms=2" \
+  | python3 -m json.tool
+```
+
+**Search by price range:**
+```bash
+curl -s "http://localhost:8001/api/v1/properties/?min_price=20000&max_price=60000&sort=price_asc" \
+  | python3 -m json.tool
+```
+
+**Full text search:**
+```bash
+curl -s "http://localhost:8001/api/v1/properties/?q=westlands+apartment" \
+  | python3 -m json.tool
+```
+
+**Nearby geo search (replace lat/lng with real GPS coords):**
+```bash
+curl -s "http://localhost:8001/api/v1/properties/nearby?lat=-1.2676&lng=36.8114&radius_km=5" \
+  | python3 -m json.tool
+```
+
+**Upload an image to a listing:**
+```bash
+curl -s -X POST "http://localhost:8001/api/v1/properties/{PROPERTY_ID}/images" \
+  -F "file=@your_image.jpg" | python3 -m json.tool
+```
+
+**Change listing status:**
+```bash
+curl -s -X PATCH "http://localhost:8001/api/v1/properties/{PROPERTY_ID}/status" \
+  -H "Content-Type: application/json" \
+  -d '{"status": "rented"}' | python3 -m json.tool
+```
+
+**Check listings in the database:**
+```bash
+docker exec afriprop_postgres psql -U afriprop -d afriprop \
+  -c "SELECT id, title, city, price, needs_review FROM properties;"
+```
+
+**Check uploaded images in MinIO:**
+```bash
+docker exec afriprop_minio mc ls local/afriprop-media
+```
+
+**Restore MinIO public access if reset:**
+```bash
+docker exec afriprop_minio mc alias set local http://localhost:9000 afriprop changeme123
+docker exec afriprop_minio mc anonymous set public local/afriprop-media
+```
+
+**Swagger docs:** `http://localhost:8001/docs`
+```
