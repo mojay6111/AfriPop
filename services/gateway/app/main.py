@@ -3,10 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.routers import auth, webhooks
 from app.config import settings
+from app.database import engine, Base
+from app.models import user
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
     print(f"AfriProp Gateway starting — ENV: {settings.ENV}")
     yield
     print("AfriProp Gateway shutting down")
