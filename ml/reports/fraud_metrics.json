@@ -1,0 +1,42 @@
+{
+  "model": "Hybrid Isolation Forest + Rules v1",
+  "roc_auc": 0.9914,
+  "threshold": 0.55,
+  "confusion_matrix": [
+    [
+      46570,
+      930
+    ],
+    [
+      394,
+      2106
+    ]
+  ],
+  "classification_report": {
+    "Clean": {
+      "precision": 0.9916105953496295,
+      "recall": 0.980421052631579,
+      "f1-score": 0.985984078590786,
+      "support": 47500.0
+    },
+    "Fraud": {
+      "precision": 0.6936758893280632,
+      "recall": 0.8424,
+      "f1-score": 0.7608381502890174,
+      "support": 2500.0
+    },
+    "accuracy": 0.97352,
+    "macro avg": {
+      "precision": 0.8426432423388464,
+      "recall": 0.9114105263157894,
+      "f1-score": 0.8734111144399017,
+      "support": 50000.0
+    },
+    "weighted avg": {
+      "precision": 0.9767138600485511,
+      "recall": 0.97352,
+      "f1-score": 0.9747267821756976,
+      "support": 50000.0
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "fraud_features": [
+    "price_deviation",
+    "account_age_risk",
+    "listing_density_risk",
+    "is_price_anomaly",
+    "price_zscore",
+    "bedrooms",
+    "bathrooms",
+    "floor_area_sqm",
+    "infrastructure_score",
+    "transit_access_score",
+    "amenity_count",
+    "tier",
+    "distance_to_cbd_km",
+    "city_enc"
+  ],
+  "threshold": 0.55,
+  "iso_weight": 0.55,
+  "rule_weight": 0.45,
+  "contamination": 0.05,
+  "n_estimators": 300
+}
