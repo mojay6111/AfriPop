@@ -521,4 +521,230 @@ flag names rather than just a score.
 **joblib over pickle** — joblib is faster and more memory-efficient for large numpy
 arrays inside sklearn and XGBoost models. It also handles multiprocessing better
 when the API serves concurrent requests.
+
+
+
+
+### ✅ Phase 3 — Completed
+
+#### What Was Achieved
+
+Phase 3 is the intelligence layer of AfriProp. Three machine learning models were
+built from scratch — data generation, exploration, feature engineering, training,
+evaluation, and deployment as live REST endpoints. Every model runs in production
+inside a dedicated FastAPI service on port 8004 and loads into memory at startup
+for fast inference.
+
+---
+
+#### Dataset
+
+50,000 synthetic property records were generated across 6 African cities — Nairobi,
+Mombasa, Kampala, Lagos, Accra, and Dar es Salaam — covering 42 neighbourhoods with
+realistic log-normal price distributions, tier-based neighbourhood scoring, and
+geo-coordinates within real city bounding boxes. 2,500 fraud samples (5%) were
+injected with known anomaly signals: prices 40-60% below market, new accounts,
+high listing density, and mismatched coordinates.
+
+A separate 24-month price history dataset (1,008 rows) was generated for the trend
+model — one monthly median price per neighbourhood per month with realistic upward
+trends (0.3-0.8% monthly) and East African seasonal peaks in January and September.
+
+---
+
+#### Model 1 — Property Valuation (XGBoost)
+
+Predicts the estimated market value of a property given its features. Powers the
+"AI Estimated Value" badge on every listing page and the mortgage affordability
+calculator. The model was trained without `log_price_per_sqm` to prevent data
+leakage — a landlord asking for a valuation does not already know the price.
+
+Four models were compared: Linear Regression, Ridge Regression, Random Forest, and
+XGBoost. XGBoost won on every metric. The target variable is log-transformed price,
+normalised within city and price period groups to handle six different currencies.
+Features are scaled with StandardScaler fitted on training data only.
+
+Key finding: `price_period_once` (sale vs rental) is the strongest predictor at
+feature importance 0.83, followed by `city_enc` at 0.07. This makes intuitive sense
+— a sale property is always 50-200x more expensive than a monthly rental for the
+same unit.
+
+```
+Algorithm:   XGBoost Regressor
+Features:    26 (no data leakage)
+Test R²:     0.9960
+Test MAPE:   15.63%
+Confidence:  95% interval via residual std = 0.1725
+```
+
+---
+
+#### Model 2 — Fraud Detection (Isolation Forest + Rules)
+
+Scores every new listing before it goes live. Returns a fraud score 0-1, a risk
+level, a list of named flags, and a recommendation (approve / flag_for_check /
+hold_for_review). Listings scoring above 0.55 are automatically held for admin
+review.
+
+The model is a hybrid of two approaches. Isolation Forest is trained only on clean
+listings — it learns what normal looks like and flags deviations. The rule-based
+layer adds interpretability — named flags like `price_anomaly`, `new_account`,
+and `below_market_60pct` give admins specific reasons to act on. The combined score
+weights Isolation Forest at 55% and rules at 45%.
+
+This approach was chosen because no labelled fraud data exists for African property
+markets. Isolation Forest is unsupervised — it needs only clean examples to learn
+the normal distribution of listings.
+
+```
+Algorithm:   Isolation Forest (unsupervised) + rule-based scoring
+Features:    14 fraud-specific features
+ROC-AUC:     0.9914
+Fraud F1:    0.76
+Precision:   0.69 (31% false positives go to manual review — intentional)
+Recall:      0.84 (catches 84% of injected fraud samples)
+Threshold:   0.55
+```
+
+---
+
+#### Model 3 — Price Trend Forecasting (Linear Trend + Seasonal Decomposition)
+
+Forecasts median property prices 6 months ahead for any of the 42 neighbourhoods.
+Powers the price trend chart on the neighbourhood insight page and the investor
+dashboard ROI projections.
+
+Prophet was initially used but produced catastrophic forecasts (MAPE 449%) because
+24 monthly data points are insufficient for Prophet to learn yearly seasonality
+without overfitting. Linear regression on log-transformed price with calendar-month
+seasonal factors proved far more appropriate and stable for this data quantity —
+reducing MAPE from 449% to 1.63%.
+
+One model is trained and saved per neighbourhood — 42 `.pkl` files total. Each file
+contains the fitted slope, intercept, R², and seasonal adjustment factors per
+calendar month. The FastAPI service loads all 42 into memory at startup.
+
+```
+Algorithm:   Linear trend + seasonal decomposition (one model per neighbourhood)
+Models:      42 (one per neighbourhood)
+Backtest MAPE: 1.63% (3-month hold-out)
+Average R²:  0.6490
+Rising neighbourhoods:  42 / 42 (synthetic data generated with positive trend)
+```
+
+---
+
+#### ML Service
+
+All three models are served by a single FastAPI service on port 8004. Models load
+into memory at startup — zero cold start per request. The service is completely
+independent of the other services and can be scaled separately.
+
+```
+Port:        8004
+Startup:     loads all models into memory once
+Endpoints:   4 (valuation, fraud, trends, recommend)
+Model files: valuation_v1.pkl, fraud_v1.pkl, 42x trend .pkl files
+```
+
+---
+
+#### Key Technical Decisions
+
+Prophet was replaced with linear trend decomposition after backtesting revealed
+449% MAPE — model complexity must match data quantity. 24 data points is insufficient
+for Prophet's yearly seasonality fitting.
+
+The valuation model excludes `log_price_per_sqm` despite it being the strongest
+predictor (correlation 0.97 with target). Including it would be data leakage — a
+landlord requesting a valuation does not already know the price per sqm. The honest
+model achieves R²=0.9960 without it.
+
+All models were retrained inside the service venv using XGBoost 2.1.1 to avoid
+version mismatch errors when loading pickled models. Always train and serve with
+the same library versions.
+
+---
+
+#### Useful Commands
+
+**Start the ML service:**
+```bash
+cd /mnt/d/DS_PROJECTS/AfriProp/services/ml
+source venv/bin/activate
+uvicorn app.main:app --host 0.0.0.0 --port 8004
+```
+
+**Check all models loaded:**
+```bash
+curl -s http://localhost:8004/health | python3 -m json.tool
+curl -s http://localhost:8004/api/v1/ml/models/status | python3 -m json.tool
+```
+
+**Valuation — predict property market value:**
+```bash
+curl -s -X POST http://localhost:8004/api/v1/ml/valuation \
+  -H "Content-Type: application/json" \
+  -d '{
+    "bedrooms": 3, "bathrooms": 2, "floor_area_sqm": 120.0,
+    "property_type": "house", "furnishing": "furnished",
+    "price_period": "monthly", "city": "Nairobi",
+    "neighbourhood": "Westlands", "distance_to_cbd_km": 3.5,
+    "infrastructure_score": 8.8, "transit_access_score": 8.5,
+    "amenity_count": 6, "tier": 1, "listing_month": 9
+  }' | python3 -m json.tool
+```
+
+**Fraud detection — score a suspicious listing:**
+```bash
+# Obvious fraud (score should be 1.0)
+curl -s -X POST http://localhost:8004/api/v1/ml/fraud \
+  -H "Content-Type: application/json" \
+  -d '{
+    "price": 5000, "city": "Nairobi", "neighbourhood": "Westlands",
+    "nb_median_price": 75000, "account_age_days": 2,
+    "listing_count": 12, "amenity_count": 0
+  }' | python3 -m json.tool
+
+# Clean listing (score should be 0.0)
+curl -s -X POST http://localhost:8004/api/v1/ml/fraud \
+  -H "Content-Type: application/json" \
+  -d '{
+    "price": 42000, "city": "Nairobi", "neighbourhood": "Westlands",
+    "nb_median_price": 45000, "account_age_days": 180,
+    "listing_count": 2, "amenity_count": 5
+  }' | python3 -m json.tool
+```
+
+**Price trend — 6-month neighbourhood forecast:**
+```bash
+curl -s -X POST http://localhost:8004/api/v1/ml/trends \
+  -H "Content-Type: application/json" \
+  -d '{
+    "city": "Nairobi",
+    "neighbourhood": "Westlands",
+    "forecast_months": 6
+  }' | python3 -m json.tool
+```
+
+**Run the data generation script (regenerates all synthetic data):**
+```bash
+cd /mnt/d/DS_PROJECTS/AfriProp
+python3 ml/scripts/generate_synthetic_data.py
+```
+
+**Retrain valuation model in service venv (avoids version mismatch):**
+```bash
+cd /mnt/d/DS_PROJECTS/AfriProp/services/ml
+source venv/bin/activate
+python3 ml/scripts/train_valuation.py
+```
+
+**Check model files:**
+```bash
+ls services/ml/app/models/
+ls services/ml/app/models/trend_models/ | wc -l
+```
+
+**Swagger docs:** `http://localhost:8004/docs`
 ```
