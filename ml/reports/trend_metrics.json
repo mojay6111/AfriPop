@@ -1,0 +1,22 @@
+{
+  "model_type": "Linear trend + seasonal decomposition",
+  "backtest_results": [
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Karen",
+      "mape_pct": 1.35
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Lekki",
+      "mape_pct": 1.59
+    },
+    {
+      "city": "Accra",
+      "neighbourhood": "East Legon",
+      "mape_pct": 1.95
+    }
+  ],
+  "avg_mape": 1.63,
+  "total_models": 42
+}

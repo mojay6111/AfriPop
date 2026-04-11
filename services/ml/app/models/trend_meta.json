@@ -1,0 +1,1437 @@
+{
+  "total_models": 42,
+  "model_type": "Linear trend + seasonal decomposition",
+  "forecast_months": 6,
+  "note": "Prophet replaced \u2014 insufficient data points for stable forecasting",
+  "models_dir": "services/ml/app/models/trend_models/",
+  "neighbourhoods": [
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Karen",
+      "trend": "rising",
+      "trend_pct": 1.14,
+      "monthly_trend": -99.659,
+      "r_squared": 0.4186,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 74533.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 73568.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 71911.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 69892.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 70322.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 70901.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Runda",
+      "trend": "rising",
+      "trend_pct": 2.39,
+      "monthly_trend": -99.449,
+      "r_squared": 0.8145,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 75697.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 75284.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 74535.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 73334.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 73555.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 73826.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Westlands",
+      "trend": "rising",
+      "trend_pct": 2.02,
+      "monthly_trend": -99.732,
+      "r_squared": 0.2692,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 73300.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 72705.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 71032.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 68565.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 68458.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 68458.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Kilimani",
+      "trend": "rising",
+      "trend_pct": 1.49,
+      "monthly_trend": -99.721,
+      "r_squared": 0.5363,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 39214.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 38999.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 38361.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 37681.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 37786.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 38057.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Lavington",
+      "trend": "rising",
+      "trend_pct": 2.35,
+      "monthly_trend": -99.494,
+      "r_squared": 0.8435,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 41649.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 41207.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 40609.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 40340.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 40669.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 41044.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Ngong Road",
+      "trend": "rising",
+      "trend_pct": 0.21,
+      "monthly_trend": -99.679,
+      "r_squared": 0.408,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 40466.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 40139.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 39186.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 38020.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 38178.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 38180.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Kasarani",
+      "trend": "rising",
+      "trend_pct": 2.76,
+      "monthly_trend": -99.322,
+      "r_squared": 0.7474,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 24493.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 24361.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 23909.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 23463.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 23581.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 23531.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Eastleigh",
+      "trend": "rising",
+      "trend_pct": 1.59,
+      "monthly_trend": -99.407,
+      "r_squared": 0.7149,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 23966.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 23843.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 23344.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 22668.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 22837.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 23060.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Mukuru",
+      "trend": "rising",
+      "trend_pct": 4.49,
+      "monthly_trend": -99.469,
+      "r_squared": 0.7406,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 23419.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 23248.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 22922.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 22644.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 22928.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 23092.0
+        }
+      ]
+    },
+    {
+      "city": "Nairobi",
+      "neighbourhood": "Githurai",
+      "trend": "rising",
+      "trend_pct": 2.57,
+      "monthly_trend": -99.307,
+      "r_squared": 0.8626,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 23936.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 23760.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 23424.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 23147.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 23373.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 23592.0
+        }
+      ]
+    },
+    {
+      "city": "Mombasa",
+      "neighbourhood": "Nyali",
+      "trend": "rising",
+      "trend_pct": 2.0,
+      "monthly_trend": -99.522,
+      "r_squared": 0.6942,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 46798.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 46835.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 45910.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 45361.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 45365.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 45184.0
+        }
+      ]
+    },
+    {
+      "city": "Mombasa",
+      "neighbourhood": "Shanzu",
+      "trend": "rising",
+      "trend_pct": 4.69,
+      "monthly_trend": -99.269,
+      "r_squared": 0.8099,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 50591.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 50515.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 49130.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 48614.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 48776.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 49310.0
+        }
+      ]
+    },
+    {
+      "city": "Mombasa",
+      "neighbourhood": "Bamburi",
+      "trend": "rising",
+      "trend_pct": 2.94,
+      "monthly_trend": -99.593,
+      "r_squared": 0.5389,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 26302.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 25918.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 25484.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 24844.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 25007.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 25117.0
+        }
+      ]
+    },
+    {
+      "city": "Mombasa",
+      "neighbourhood": "Mtwapa",
+      "trend": "rising",
+      "trend_pct": 2.29,
+      "monthly_trend": -99.716,
+      "r_squared": 0.4397,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 25045.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 24676.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 24148.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 23725.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 23985.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 24141.0
+        }
+      ]
+    },
+    {
+      "city": "Mombasa",
+      "neighbourhood": "Likoni",
+      "trend": "rising",
+      "trend_pct": 3.33,
+      "monthly_trend": -99.708,
+      "r_squared": 0.6281,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 13541.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 13591.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 13486.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 13326.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 13329.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 13329.0
+        }
+      ]
+    },
+    {
+      "city": "Mombasa",
+      "neighbourhood": "Kisauni",
+      "trend": "rising",
+      "trend_pct": 2.23,
+      "monthly_trend": -99.557,
+      "r_squared": 0.6668,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 14237.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 14179.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 14179.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 13857.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 13857.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 13801.0
+        }
+      ]
+    },
+    {
+      "city": "Kampala",
+      "neighbourhood": "Kololo",
+      "trend": "rising",
+      "trend_pct": 3.49,
+      "monthly_trend": -99.321,
+      "r_squared": 0.7988,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 2744369.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 2709399.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 2675199.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 2623395.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 2649054.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 2669660.0
+        }
+      ]
+    },
+    {
+      "city": "Kampala",
+      "neighbourhood": "Nakasero",
+      "trend": "rising",
+      "trend_pct": 2.98,
+      "monthly_trend": -99.516,
+      "r_squared": 0.6101,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 2606818.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 2575402.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 2514637.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 2468004.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 2495490.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 2487639.0
+        }
+      ]
+    },
+    {
+      "city": "Kampala",
+      "neighbourhood": "Ntinda",
+      "trend": "rising",
+      "trend_pct": 5.34,
+      "monthly_trend": -99.518,
+      "r_squared": 0.6765,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 1456942.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 1441256.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 1407508.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 1389775.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 1402410.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 1407387.0
+        }
+      ]
+    },
+    {
+      "city": "Kampala",
+      "neighbourhood": "Bukoto",
+      "trend": "rising",
+      "trend_pct": 0.86,
+      "monthly_trend": -99.788,
+      "r_squared": 0.4515,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 1323965.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 1324938.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 1315105.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 1294755.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 1296996.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 1290061.0
+        }
+      ]
+    },
+    {
+      "city": "Kampala",
+      "neighbourhood": "Kireka",
+      "trend": "rising",
+      "trend_pct": 1.93,
+      "monthly_trend": -99.591,
+      "r_squared": 0.5451,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 785989.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 772808.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 755873.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 742125.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 746426.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 750121.0
+        }
+      ]
+    },
+    {
+      "city": "Kampala",
+      "neighbourhood": "Naalya",
+      "trend": "rising",
+      "trend_pct": 0.72,
+      "monthly_trend": -99.547,
+      "r_squared": 0.7433,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 772021.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 772081.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 757907.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 750464.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 752156.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 751801.0
+        }
+      ]
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Lekki",
+      "trend": "rising",
+      "trend_pct": 3.57,
+      "monthly_trend": -99.531,
+      "r_squared": 0.5041,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 326467.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 321541.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 312483.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 302942.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 306439.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 308330.0
+        }
+      ]
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Victoria Island",
+      "trend": "rising",
+      "trend_pct": 1.38,
+      "monthly_trend": -99.639,
+      "r_squared": 0.4283,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 318005.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 316122.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 309706.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 301841.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 301159.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 299176.0
+        }
+      ]
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Ikoyi",
+      "trend": "rising",
+      "trend_pct": 2.89,
+      "monthly_trend": -99.597,
+      "r_squared": 0.5339,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 322469.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 318576.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 313387.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 304786.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 307386.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 308452.0
+        }
+      ]
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Yaba",
+      "trend": "rising",
+      "trend_pct": 3.39,
+      "monthly_trend": -99.364,
+      "r_squared": 0.7369,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 185436.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 184984.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 180731.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 177178.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 178418.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 179380.0
+        }
+      ]
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Surulere",
+      "trend": "rising",
+      "trend_pct": 3.14,
+      "monthly_trend": -99.314,
+      "r_squared": 0.7806,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 187172.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 186015.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 183148.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 179336.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 180467.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 181626.0
+        }
+      ]
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Ikeja",
+      "trend": "rising",
+      "trend_pct": 3.63,
+      "monthly_trend": -99.382,
+      "r_squared": 0.8355,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 183828.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 181795.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 179924.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 177354.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 179151.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 179594.0
+        }
+      ]
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Mushin",
+      "trend": "rising",
+      "trend_pct": 4.35,
+      "monthly_trend": -99.502,
+      "r_squared": 0.9014,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 96047.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 95950.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 94969.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 94803.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 95523.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 96108.0
+        }
+      ]
+    },
+    {
+      "city": "Lagos",
+      "neighbourhood": "Agege",
+      "trend": "rising",
+      "trend_pct": 2.5,
+      "monthly_trend": -99.575,
+      "r_squared": 0.5096,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 97625.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 96308.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 93917.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 91959.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 92271.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 92967.0
+        }
+      ]
+    },
+    {
+      "city": "Accra",
+      "neighbourhood": "East Legon",
+      "trend": "rising",
+      "trend_pct": 1.95,
+      "monthly_trend": -99.649,
+      "r_squared": 0.3638,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 6443.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 6335.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 6173.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 5960.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 5909.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 6015.0
+        }
+      ]
+    },
+    {
+      "city": "Accra",
+      "neighbourhood": "Cantonments",
+      "trend": "rising",
+      "trend_pct": 3.0,
+      "monthly_trend": -99.288,
+      "r_squared": 0.7434,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 6986.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 6923.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 6755.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 6641.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 6641.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 6695.0
+        }
+      ]
+    },
+    {
+      "city": "Accra",
+      "neighbourhood": "Airport Hills",
+      "trend": "rising",
+      "trend_pct": 4.91,
+      "monthly_trend": -99.403,
+      "r_squared": 0.7025,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 3729.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 3783.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 3672.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 3614.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 3614.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 3672.0
+        }
+      ]
+    },
+    {
+      "city": "Accra",
+      "neighbourhood": "Tema",
+      "trend": "rising",
+      "trend_pct": 2.75,
+      "monthly_trend": -99.273,
+      "r_squared": 0.8397,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 3758.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 3758.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 3758.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 3699.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 3699.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 3699.0
+        }
+      ]
+    },
+    {
+      "city": "Accra",
+      "neighbourhood": "Adenta",
+      "trend": "rising",
+      "trend_pct": 3.11,
+      "monthly_trend": -99.369,
+      "r_squared": 0.6669,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 2071.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 2013.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 2013.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 1959.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 1959.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 1959.0
+        }
+      ]
+    },
+    {
+      "city": "Accra",
+      "neighbourhood": "Ashaiman",
+      "trend": "rising",
+      "trend_pct": 1.47,
+      "monthly_trend": -99.457,
+      "r_squared": 0.6117,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 2039.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 2039.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 1981.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 1928.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 1928.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 1928.0
+        }
+      ]
+    },
+    {
+      "city": "Dar es Salaam",
+      "neighbourhood": "Msasani",
+      "trend": "rising",
+      "trend_pct": 1.61,
+      "monthly_trend": -99.587,
+      "r_squared": 0.5379,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 1695969.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 1689407.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 1645612.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 1611147.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 1616912.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 1628749.0
+        }
+      ]
+    },
+    {
+      "city": "Dar es Salaam",
+      "neighbourhood": "Oyster Bay",
+      "trend": "rising",
+      "trend_pct": 2.87,
+      "monthly_trend": -99.558,
+      "r_squared": 0.7007,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 1705172.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 1691716.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 1667423.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 1628955.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 1649303.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 1649971.0
+        }
+      ]
+    },
+    {
+      "city": "Dar es Salaam",
+      "neighbourhood": "Kinondoni",
+      "trend": "rising",
+      "trend_pct": 0.75,
+      "monthly_trend": -99.55,
+      "r_squared": 0.5404,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 952895.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 946157.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 915456.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 891876.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 894543.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 905035.0
+        }
+      ]
+    },
+    {
+      "city": "Dar es Salaam",
+      "neighbourhood": "Mikocheni",
+      "trend": "rising",
+      "trend_pct": 1.78,
+      "monthly_trend": -99.373,
+      "r_squared": 0.8074,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 994658.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 991254.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 969439.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 956711.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 958925.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 968103.0
+        }
+      ]
+    },
+    {
+      "city": "Dar es Salaam",
+      "neighbourhood": "Mbagala",
+      "trend": "rising",
+      "trend_pct": 1.42,
+      "monthly_trend": -99.425,
+      "r_squared": 0.6756,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 542221.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 541887.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 528075.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 515922.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 513732.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 518945.0
+        }
+      ]
+    },
+    {
+      "city": "Dar es Salaam",
+      "neighbourhood": "Temeke",
+      "trend": "rising",
+      "trend_pct": 3.51,
+      "monthly_trend": -99.382,
+      "r_squared": 0.8804,
+      "forecast": [
+        {
+          "month": "2026-01",
+          "predicted": 533885.0
+        },
+        {
+          "month": "2026-02",
+          "predicted": 530961.0
+        },
+        {
+          "month": "2026-03",
+          "predicted": 525251.0
+        },
+        {
+          "month": "2026-04",
+          "predicted": 519508.0
+        },
+        {
+          "month": "2026-05",
+          "predicted": 527384.0
+        },
+        {
+          "month": "2026-06",
+          "predicted": 530912.0
+        }
+      ]
+    }
+  ]
+}

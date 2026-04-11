@@ -1,0 +1,43 @@
+city,neighbourhood,currency,current_median,forecast_6mo,trend_pct,trend,r_squared,monthly_trend_pct
+Kampala,Ntinda,UGX,1336100.0,1407387.0,5.34,rising,0.6765,-99.518
+Accra,Airport Hills,GHS,3500.0,3672.0,4.91,rising,0.7025,-99.403
+Mombasa,Shanzu,KES,47100.0,49310.0,4.69,rising,0.8099,-99.269
+Nairobi,Mukuru,KES,22100.0,23092.0,4.49,rising,0.7406,-99.469
+Lagos,Mushin,NGN,92100.0,96108.0,4.35,rising,0.9014,-99.502
+Lagos,Ikeja,NGN,173300.0,179594.0,3.63,rising,0.8355,-99.382
+Lagos,Lekki,NGN,297700.0,308330.0,3.57,rising,0.5041,-99.531
+Dar es Salaam,Temeke,TZS,512900.0,530912.0,3.51,rising,0.8804,-99.382
+Kampala,Kololo,UGX,2579700.0,2669660.0,3.49,rising,0.7988,-99.321
+Lagos,Yaba,NGN,173500.0,179380.0,3.39,rising,0.7369,-99.364
+Mombasa,Likoni,KES,12900.0,13329.0,3.33,rising,0.6281,-99.708
+Lagos,Surulere,NGN,176100.0,181626.0,3.14,rising,0.7806,-99.314
+Accra,Adenta,GHS,1900.0,1959.0,3.11,rising,0.6669,-99.369
+Accra,Cantonments,GHS,6500.0,6695.0,3.0,rising,0.7434,-99.288
+Kampala,Nakasero,UGX,2415600.0,2487639.0,2.98,rising,0.6101,-99.516
+Mombasa,Bamburi,KES,24400.0,25117.0,2.94,rising,0.5389,-99.593
+Lagos,Ikoyi,NGN,299800.0,308452.0,2.89,rising,0.5339,-99.597
+Dar es Salaam,Oyster Bay,TZS,1603900.0,1649971.0,2.87,rising,0.7007,-99.558
+Nairobi,Kasarani,KES,22900.0,23531.0,2.76,rising,0.7474,-99.322
+Accra,Tema,GHS,3600.0,3699.0,2.75,rising,0.8397,-99.273
+Nairobi,Githurai,KES,23000.0,23592.0,2.57,rising,0.8626,-99.307
+Lagos,Agege,NGN,90700.0,92967.0,2.5,rising,0.5096,-99.575
+Nairobi,Runda,KES,72100.0,73826.0,2.39,rising,0.8145,-99.449
+Nairobi,Lavington,KES,40100.0,41044.0,2.35,rising,0.8435,-99.494
+Mombasa,Mtwapa,KES,23600.0,24141.0,2.29,rising,0.4397,-99.716
+Mombasa,Kisauni,KES,13500.0,13801.0,2.23,rising,0.6668,-99.557
+Nairobi,Westlands,KES,67100.0,68458.0,2.02,rising,0.2692,-99.732
+Mombasa,Nyali,KES,44300.0,45184.0,2.0,rising,0.6942,-99.522
+Accra,East Legon,GHS,5900.0,6015.0,1.95,rising,0.3638,-99.649
+Kampala,Kireka,UGX,735900.0,750121.0,1.93,rising,0.5451,-99.591
+Dar es Salaam,Mikocheni,TZS,951200.0,968103.0,1.78,rising,0.8074,-99.373
+Dar es Salaam,Msasani,TZS,1602900.0,1628749.0,1.61,rising,0.5379,-99.587
+Nairobi,Eastleigh,KES,22700.0,23060.0,1.59,rising,0.7149,-99.407
+Nairobi,Kilimani,KES,37500.0,38057.0,1.49,rising,0.5363,-99.721
+Accra,Ashaiman,GHS,1900.0,1928.0,1.47,rising,0.6117,-99.457
+Dar es Salaam,Mbagala,TZS,511700.0,518945.0,1.42,rising,0.6756,-99.425
+Lagos,Victoria Island,NGN,295100.0,299176.0,1.38,rising,0.4283,-99.639
+Nairobi,Karen,KES,70100.0,70901.0,1.14,rising,0.4186,-99.659
+Kampala,Bukoto,UGX,1279000.0,1290061.0,0.86,rising,0.4515,-99.788
+Dar es Salaam,Kinondoni,TZS,898300.0,905035.0,0.75,rising,0.5404,-99.55
+Kampala,Naalya,UGX,746400.0,751801.0,0.72,rising,0.7433,-99.547
+Nairobi,Ngong Road,KES,38100.0,38180.0,0.21,rising,0.408,-99.679
