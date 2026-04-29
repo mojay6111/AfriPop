@@ -68,9 +68,10 @@ async def voice_inbound(
             price     = prop.get("price", 0)
             currency  = prop.get("currency", "KES")
             period    = prop.get("price_period", "monthly")
+            period_label = {"monthly":"month","yearly":"year","once":"sale"}.get(period, period)
             speech_parts.append(
                 f"Listing {i}. {bedrooms} bedroom {prop_type} in {nb}. "
-                f"{currency} {price:,.0f} per {period.replace("monthly","month").replace("yearly","year").replace("once","sale")}."
+                f"{currency} {price:,.0f} per {period_label}."
             )
 
         speech_parts.append(
