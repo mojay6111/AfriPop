@@ -35,10 +35,11 @@ env/
 # ── ML MODELS & DATA ──────────────────────────────────
 ml/data/raw/
 ml/data/processed/
-*.pkl
 *.joblib
 *.onnx
 *.h5
+# Allow ML model files
+!services/ml/app/models/**
 
 # ── NODE ──────────────────────────────────────────────
 node_modules/

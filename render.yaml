@@ -1,0 +1,150 @@
+services:
+  # ── GATEWAY SERVICE ───────────────────────────────────────────────────────
+  - type: web
+    name: afriprop-gateway
+    runtime: python
+    rootDir: services/gateway
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: POSTGRES_HOST
+        fromDatabase:
+          name: afriprop-db
+          property: host
+      - key: POSTGRES_PORT
+        fromDatabase:
+          name: afriprop-db
+          property: port
+      - key: POSTGRES_DB
+        fromDatabase:
+          name: afriprop-db
+          property: database
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: afriprop-db
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          name: afriprop-db
+          property: password
+      - key: REDIS_HOST
+        fromService:
+          name: afriprop-redis
+          type: redis
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          name: afriprop-redis
+          type: redis
+          property: port
+      - key: MONGO_HOST
+        value: localhost
+      - key: MONGO_PORT
+        value: "27017"
+      - key: MONGO_DB
+        value: afriprop
+      - key: MONGO_USER
+        value: afriprop
+      - key: MONGO_PASSWORD
+        value: changeme
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: JWT_EXPIRE_MINUTES
+        value: "60"
+      - key: AT_USERNAME
+        value: sandbox
+      - key: AT_API_KEY
+        value: your-at-api-key
+      - key: ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+
+  # ── PROPERTY SERVICE ──────────────────────────────────────────────────────
+  - type: web
+    name: afriprop-property
+    runtime: python
+    rootDir: services/property
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: POSTGRES_HOST
+        fromDatabase:
+          name: afriprop-db
+          property: host
+      - key: POSTGRES_PORT
+        fromDatabase:
+          name: afriprop-db
+          property: port
+      - key: POSTGRES_DB
+        fromDatabase:
+          name: afriprop-db
+          property: database
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: afriprop-db
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          name: afriprop-db
+          property: password
+      - key: REDIS_HOST
+        fromService:
+          name: afriprop-redis
+          type: redis
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          name: afriprop-redis
+          type: redis
+          property: port
+      - key: MINIO_HOST
+        value: localhost
+      - key: MINIO_PORT
+        value: "9000"
+      - key: MINIO_ROOT_USER
+        value: afriprop
+      - key: MINIO_ROOT_PASSWORD
+        value: changeme123
+      - key: MINIO_BUCKET
+        value: afriprop-media
+      - key: JWT_SECRET
+        fromService:
+          name: afriprop-gateway
+          type: web
+          envVarKey: JWT_SECRET
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+
+  # ── ML SERVICE ────────────────────────────────────────────────────────────
+  - type: web
+    name: afriprop-ml
+    runtime: python
+    rootDir: services/ml
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    plan: standard
+    envVars:
+      - key: ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+
+# ── DATABASES ─────────────────────────────────────────────────────────────
+databases:
+  - name: afriprop-db
+    databaseName: afriprop
+    user: afriprop
+    plan: free
+
+  - name: afriprop-redis
+    plan: free

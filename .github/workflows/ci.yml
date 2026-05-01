@@ -1,0 +1,108 @@
+name: AfriProp CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-gateway:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install gateway deps
+        run: |
+          cd services/gateway
+          pip install -r requirements.txt -q
+
+      - name: Test gateway health
+        run: |
+          cd services/gateway
+          python3 -c "from app.config import Settings; print('Config OK')"
+
+  test-property:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install property deps
+        run: |
+          cd services/property
+          pip install -r requirements.txt -q
+
+      - name: Test property imports
+        run: |
+          cd services/property
+          python3 -c "from app.models.property import Property; print('Models OK')"
+
+  test-ml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ml deps
+        run: |
+          cd services/ml
+          pip install -r requirements.txt -q
+
+      - name: Test ML imports
+        run: |
+          cd services/ml
+          python3 -c "import xgboost; import sklearn; print('ML deps OK')"
+
+  test-finance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install finance deps
+        run: |
+          cd services/finance
+          pip install -r requirements.txt -q
+
+      - name: Test finance imports
+        run: |
+          cd services/finance
+          python3 -c "from app.models.payment import Payment; print('Finance models OK')"
+
+  test-channels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install channels deps
+        run: |
+          cd services/channels
+          pip install -r requirements.txt -q
+
+      - name: Test channels imports
+        run: |
+          cd services/channels
+          python3 -c "from app.services.sms_parser import parse_sms; print('Channels OK')"
